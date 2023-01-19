@@ -11,10 +11,11 @@ function App() {
 
   return (
     <div>
-
-    <BrowserRouter>
+      <h1>Todo App</h1>
     <Todos />
     <DisplayTodos />
+    <BrowserRouter>
+
   <Routes>
     <Route path ="/Fetchapi" element={<Fetchapi/>} />
   </Routes>

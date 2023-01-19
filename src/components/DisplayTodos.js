@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const DisplayTodos = (props) => {
-    const [sort, setSort] = useState('active')
+    const [sort, setSort] = useState('active');
   return (
     <div className='displaytodos'>
         <div className='buttons'>
@@ -47,11 +47,44 @@ const DisplayTodos = (props) => {
                     );
                 }) : null
             }
-            {/* For  completed */}
+            {/* For  completed items*/}
+            {
+                props.todos.length > 0 && sort === "completed" ?
+
+                props.todos.map((item) => {
+                    return (
+                        item.completed === true && (
+                        <TodoItem
+                        key={item.id}
+                        item={item}
+                        removeTodo={props.removeTodo}
+                        updateTodo={props.updateTodo}
+                        completeTodo={props.completeTodo}
+                        />
+                        )
+                    );
+                }) : null
+            }
+            {/* For all items */}
+            {
+                props.todos.length > 0 && sort === "all" ?
+
+                props.todos.map((item) => {
+                    return (
+                        <TodoItem
+                        key={item.id}
+                        item={item}
+                        removeTodo={props.removeTodo}
+                        updateTodo={props.updateTodo}
+                        completeTodo={props.completeTodo}
+                        />
+                    );
+                }) : null
+            }
 
         </ul>
     </div>
-  )
-}
+  );
+};
 
 export default connect(mapStateToProps,mapDispatchToProps)(DisplayTodos);
