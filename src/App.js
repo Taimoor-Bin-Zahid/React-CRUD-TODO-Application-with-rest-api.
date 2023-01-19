@@ -5,13 +5,16 @@ import {
 } from "react-router-dom";
 import Fetchapi from './Fetchapi';
 import Todos from './components/Todos';
+import DisplayTodos from './components/DisplayTodos';
 
 function App() {
 
   return (
     <div>
-      <Todos />
+
     <BrowserRouter>
+    <Todos />
+    <DisplayTodos />
   <Routes>
     <Route path ="/Fetchapi" element={<Fetchapi/>} />
   </Routes>
