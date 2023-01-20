@@ -1,4 +1,4 @@
-import './App.css';
+import './css/main.css';
 import {
   BrowserRouter,Route, Routes
 
@@ -6,14 +6,27 @@ import {
 import Fetchapi from './Fetchapi';
 import Todos from './components/Todos';
 import DisplayTodos from './components/DisplayTodos';
-
+import { motion } from "framer-motion"
 function App() {
 
   return (
-    <div>
-      <h1>Todo App</h1>
-    <Todos />
-    <DisplayTodos />
+    <div className='App'>
+      <motion.h1
+        initial={{ y: -200 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", duration: 0.5 }}
+        whileHover={{ scale: 1.1 }}
+      >
+        Todo App
+      </motion.h1>
+      <motion.div
+        initial={{ y: 1000 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", duration: 1 }}
+      >
+        <Todos />
+        <DisplayTodos />
+      </motion.div>
     <BrowserRouter>
 
   <Routes>
